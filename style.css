@@ -21,6 +21,7 @@
     background-color: #90a0ff;
     padding: .3em;
     z-index: 1;
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
 }
 
 #loginButton {
@@ -42,6 +43,7 @@
 #loginButton:hover {
    background-color: #6070ff; 
    cursor: pointer;
+   box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2)
 }
 
 #login input {
@@ -72,6 +74,8 @@
 .feature-image img {
     margin: auto 3em auto 0em;
     height: 10%;
+    -webkit-filter: drop-shadow(3px 5px 5px #225);
+    filter:         drop-shadow(3px 5px 5px #225); 
     /* max-height: 100%; */
     /* max-width: 100%; */
     }
@@ -112,6 +116,7 @@
     background-color: #FC7;
     width: 50%;
     height: 80%;
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
 }
 
 .content-pane div {

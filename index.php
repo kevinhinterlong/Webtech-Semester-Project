@@ -110,7 +110,7 @@
 
 	</div>
 	
-	
+<!-- make snackbars to show successful or unsuccessful login	http://www.w3schools.com/howto/howto_js_snackbar.asp -->
 	<script>
 
 	    $( "#loginButton" ).click(function(event) {
