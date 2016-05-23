@@ -1,9 +1,164 @@
-.registerButton {
-    cursor: pointer;
+#registerButton:hover {
+    cursor: pointer;    
+}
+
+#registerButton {
     color: blue;
 }
 
-/* The Modal (background) */
+#login {
+    width: 12%;
+    float: right;
+    margin: 1em 0em .5em 1em;
+}
+
+#loginForm {
+    margin-left: -20%;
+    position:relative;
+    right: 8%;
+    border-radius: 5px;
+    display:none;
+    background-color: #90a0ff;
+    padding: .3em;
+    z-index: 1;
+}
+
+#loginButton {
+    background-color: blue;
+    position:relative;
+    left: 50%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#loginButton:hover {
+   background-color: #6070ff; 
+   cursor: pointer;
+}
+
+#login input {
+    margin: .5em auto;
+}
+
+.vertical-form input {
+    margin: auto;
+    display: block;
+}
+
+
+.feature {
+    width: 40%;
+    height: 80%;
+}
+
+.feature-image {
+    height: 80%;
+    /* width: 90%; */
+    text-align: center;
+    margin: auto;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+}
+
+.feature-image img {
+    /* width: 100%; */
+    float: right;
+    margin: auto 3em auto 0em;
+    height: 90%;
+    -ms-transform: rotate(20deg); /* IE 9 */
+    -webkit-transform: rotate(20deg); /* Chrome, Safari, Opera */
+    transform: rotate(20deg);
+}
+
+.feature.left {
+
+}
+
+.feature.right {
+
+}
+
+.description {
+    padding: 0em 3em 0em 3em;
+    margin: auto 0;
+    /* clear: both; */
+    background-color: red;
+    width: 50%;
+    height: 80%;
+    float: left;
+}
+
+.content-pane div {
+    display: inline;
+}
+
+.content-pane {
+    height: 30%;
+    width: 100%;
+    display:table;
+    margin: auto;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    /* background image? */
+}
+
+.main {
+    top: 80px;
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    /* background image? */
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    padding: 1em 0;
+}
+
+.header {
+    position: absolute;
+    background-color: #FA2;
+    height: 80px;
+    width: 100%;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+
+.header h1 {
+    display: inline-block;
+    padding: .1em 1em;
+}
+
+.linkBar {
+    color: blue;
+}
+
+.linkBar li {
+    padding: .5em .5em;
+    margin: 1em;
+    background-color:yellow;
+}
+
+.linkBar li,ul,a {
+    display: inline;
+    text-decoration: none;
+    padding: 0 0 .5em 0;
+}
+
+/* The Modal (background) from w3schools*/
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -23,7 +178,7 @@
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 30%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -32,6 +187,11 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    z-index:1;
+}
+
+.close:after {
+    content: '×'; /* UTF-8 symbol */
 }
 
 .close:hover,
