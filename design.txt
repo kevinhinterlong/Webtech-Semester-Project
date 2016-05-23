@@ -1,0 +1,25 @@
+household to-do list with assignments on a per person basis 
+
+users-{name, is_parent/admin, hash}
+assignments-{assigner, asignee, date assigned, title, details, percent_completed}
+
+Public:
+    -About
+	-What it's for, why it was made
+    -Cool homepage
+	-Show pictures, jquery, the app
+
+//make this a single page
+Parent: 
+    -Assign a task
+	-Able to assign tasks to everyone
+Child: 
+    -Assign a task
+	-Able to self-assign a task
+
+//Simplify this to a single page and jquery to show one or the other
+User: 
+    -Assignments
+	-Tasks that are assigned to this user
+    -Assigns
+        -Tasks that were assigned by this user
