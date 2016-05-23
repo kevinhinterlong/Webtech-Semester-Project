@@ -53,7 +53,6 @@
     display: block;
 }
 
-
 .feature {
     width: 40%;
     height: 80%;
@@ -72,10 +71,9 @@
 
 .feature-image img {
     margin: auto 3em auto 0em;
-    height: auto;
-    /* height: 10%; */
+    height: 10%;
     /* max-height: 100%; */
-    max-width: 100%;
+    /* max-width: 100%; */
     }
 
 .feature.left {
@@ -111,7 +109,7 @@
     padding: 0em 3em 0em 3em;
     margin: auto 0;
     /* clear: both; */
-    background-color: red;
+    background-color: #FC7;
     width: 50%;
     height: 80%;
 }
@@ -129,6 +127,7 @@
     left: 0%;
     right: 0%;
     bottom: 0%;
+    padding: 1em 0;
     /* background image? */
 }
 
@@ -163,7 +162,13 @@
 .linkBar {
     color: blue;
     float:right;
-    margin: 4% 45% 0 0;
+    top: 80px;
+    left: 25%;
+    bottom:0;
+    right:0;
+    
+    position:absolute;
+    margin: -2% 0% 0 0;
 }
 
 .linkBar li {
@@ -178,11 +183,26 @@
     padding: 0 0 .5em 0;
 }
 
+.disclaimer {
+    background-color: red;
+    width: auto;
+    display: inline-block;
+}
+
+.disclaimer div {
+    display:inline;
+}
+
+
+p,li i {
+    vertical-align: middle !important;
+}
+
 /* The Modal (background) from w3schools*/
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -201,13 +221,14 @@
     width: 30%; /* Could be more or less, depending on screen size */
 }
 
+
 /* The Close Button */
 .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 38px;
     font-weight: bold;
-    z-index:10;
+    margin: 0 0 0 -.5em;
 }
 
 .close:after {
