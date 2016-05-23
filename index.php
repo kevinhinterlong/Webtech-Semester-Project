@@ -26,9 +26,9 @@
 			<div class="modal-content">
 			    <span class="close"></span>
 			    <form class="vertical-form">
-				<input type="text" id="registerUsername" />
-				<input type="password" id="registerPassword" />
-				<input type="password" id="confirmPassword" />
+				Username: <input type="text" id="registerUsername" />
+				Password: <input type="password" id="registerPassword" />
+				Confirm Password: <input type="password" id="confirmPassword" />
 				<input type="submit" value="Register" />
 			    </form>
 			</div>
@@ -46,22 +46,42 @@
 
 	<div class="main">
 	    <div id="intro" class="content-pane">
-		<div class="description">
+		<div class="description left">
 		    <p>Do you ever feel like keeping track of your family is impossible?</p>
 		    <p>Is it getting too difficult to keep track of what you need to do?</p>
 		    <p>With <?php echo $config["websiteName"]; ?>, you'll be able to do all that and more!</p>
 		</div>
     
-		<div class="feature">
+		<div class="feature right">
 		    <div class="feature-image">
 			<img src="https://pixabay.com/static/uploads/photo/2013/07/12/18/22/checklist-153371_960_720.png" alt="checklist">
 		    </div>
 		    <div class="feature-description">
-			<h2>"I use this product all the time. It's fantastic!"</h2>
+			<h2>"I use this product all the time. It's fantastic!" - Kevin Hinterlong</h2>
 		    </div>
 		</div>
     
 	    </div>
+
+
+	    <div id="moreDetails" class="content-pane">
+		<div class="description right">
+		    <p><?php echo $config["websiteName"]; ?>'s original purpose was to present chores and work in a task based system.</p>
+		    <p>With our active development team, you'll soon be able to create a reward system for the tasks you assign.</p>
+		    <p><?php echo $config["websiteName"]; ?> can be used by parents, grade schools, even development teams!</p>
+		</div>
+    
+		<div class="feature left">
+		    <div class="feature-image">
+			<img src="https://pixabay.com/static/uploads/photo/2013/07/12/19/04/swiss-army-knife-154314_960_720.png" alt="versatility">
+		    </div>
+		    <div class="feature-description">
+			<h2>"This app has so many uses it's insane!" - John Valin</h2>
+		    </div>
+		</div>
+    
+	    </div>
+
 
 	</div>
 	

@@ -71,21 +71,40 @@
 }
 
 .feature-image img {
-    /* width: 100%; */
-    float: right;
     margin: auto 3em auto 0em;
-    height: 90%;
+    height: auto;
+    /* height: 10%; */
+    /* max-height: 100%; */
+    max-width: 100%;
+    }
+
+.feature.left {
+    float: left;
+}
+
+.feature.left img {
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Chrome, Safari, Opera */
+    transform: rotate(-20deg);
+
+}
+
+.feature.right img {
     -ms-transform: rotate(20deg); /* IE 9 */
     -webkit-transform: rotate(20deg); /* Chrome, Safari, Opera */
     transform: rotate(20deg);
 }
 
-.feature.left {
-
+.feature.right {
+    float: right;
 }
 
-.feature.right {
+.description.left {
+    float: left;
+}
 
+.description.right {
+    float: right;
 }
 
 .description {
@@ -95,7 +114,6 @@
     background-color: red;
     width: 50%;
     height: 80%;
-    float: left;
 }
 
 .content-pane div {
@@ -144,6 +162,8 @@
 
 .linkBar {
     color: blue;
+    float:right;
+    margin: 4% 45% 0 0;
 }
 
 .linkBar li {
@@ -187,7 +207,7 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
-    z-index:1;
+    z-index:10;
 }
 
 .close:after {
