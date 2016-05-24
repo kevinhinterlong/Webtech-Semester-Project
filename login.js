@@ -18,8 +18,21 @@ function initialize() {
         modal.style.display = "none";
     }
 
+    var loginPassword = document.getElementById("loginPassword");
+    loginPassword.addEventListener("keydown", function (e) {
+        if (e.keyCode === 13) {
+	    login();
+	}
+    });
+    
+    var confirmPassword = document.getElementById("confirmPassword");
+    confirmPassword.addEventListener("keydown", function (e) {
+        if (e.keyCode === 13) {
+	    register();
+	}
+    });
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function(event) { //not working
 	if (event.target == modal) {
 	    modal.style.display = "none";
 	}
@@ -27,8 +40,8 @@ function initialize() {
 
 }
 
-function checkLogin(username,password,verifypassword) {
-    if(password !== verifypassword) {
+function checkLogin(username,password,verifypassword,successFunction) {
+    if(password != verifypassword) {
 	return false;
     }
 
@@ -39,90 +52,63 @@ function checkLogin(username,password,verifypassword) {
     if(hasWhiteSpace(username)) {
 	return false;
     }
-
-    return checkName(username);
+    nameAvailable(username,successFunction);
 }
 
-function getUser() {
-    return document.getElementById('registerUsername');
-}
-
-function getPass() {
-    return document.getElementById('registerPassword');
+function login() {
+    var form = document.getElementById("loginForm");
+    var username = form[0].value;
+    var password = form[1].value;
+    loginUser(username,password,function() {
+	window.location.replace("task.php");
+    });
 }
 
 function register() {
-    var username = getUser(); 
-    var password = getPass();
-    var verifypassword = document.getElementById('confirmPassword');
-    if(checkLogin(username,password,verifypassword)) {
-	register(username,password);
-    }
-
-}
-
-//Tell the server to logout the current user
-function logout() {
-    var xhttp = new XMLHttpRequest();
-    var result = "";
-    xhttp.onreadystatechange = function() {
-	if (xhttp.readyState == 4 && xhttp.status == 200) {
-	    result = xhttp.responseText;
-	    if(result === "success") {
-		window.location.replace("index.php");
-	    }
-	}
-    };
-    xhttp.open("POST", "login.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("method=logout");
-}
-
-//attempt to login the current username with the current password
-//this is basically the same as attemptRegister() except that it redirects to game.php on successful login
-function attemptLogin(username,password) {
-    var xhttp = new XMLHttpRequest();
-    var result = "";
-    xhttp.onreadystatechange = function() {
-	if (xhttp.readyState == 4 && xhttp.status == 200) {
-	    result = xhttp.responseText;
-	    if(result === "success") {
-		window.location.replace("game.php");
-	    } else {
-		document.getElementById("response").innerHTML = "Failed to log in. Please try again";
-	    }
-	}
-    };
-    xhttp.open("POST", "login.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("username=" + username + "&password=" + password);
+    var username = document.getElementById('registerUsername').value;
+    var password = document.getElementById('registerPassword').value;
+    var verifypassword = document.getElementById('confirmPassword').value;
+    checkLogin(username,password,verifypassword, function() { 
+	registerUser(username,password,function() {
+	    alert("account made and logged in");
+	    // window.location.replace("task.php");	
+	}); 
+    });
 }
 
 //check with the server to see if a username is avialable
-function checkName(username) {
-    attemptRegister("attemptRegister",username);
+function nameAvailable(username,successFunction) {
+    serverRequest("attemptRegister",username,undefined,successFunction);
 }
 
 //actually register the user
-function register(username,password) {
-    attemptRegister("register",username,password);
+function loginUser(username,password,successFunction) {
+    serverRequest("login",username,password,successFunction);
+}
+
+//actually register the user
+function registerUser(username,password,successFunction) {
+    serverRequest("register",username,password,successFunction);
 }
 
 //used to see if a name is available and 
-function attemptRegister(mode,username,password) {
+function serverRequest(mode,username,password,successFunction) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-	    document.getElementById("response").innerHTML = xhttp.responseText;
+	    var result = xhttp.responseText;
+	    if(result === "success") {
+		successFunction();
+	    }
+	    else {
+		alert(result + " failed with u: " + username + " ; p: " + password + " ; m: " + mode);
+	    }
         }
     };
     xhttp.open("POST", "login.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("username=" + username + "&password=" + password + "&method=" + mode);
-    if(mode == "register") {
-	window.location.replace("game.php");
+    xhttp.send("method=" + mode + "&username=" + username + "&password=" + password);
     }
-}
 
 //check if a string has whitespace with regex
 function hasWhiteSpace(s) {
