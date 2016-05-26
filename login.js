@@ -101,7 +101,6 @@ function serverRequest(mode,username,password,successFunction) {
 		successFunction();
 	    }
 	    else {
-		alert(result + " failed with u: " + username + " ; p: " + password + " ; m: " + mode);
 	    }
         }
     };

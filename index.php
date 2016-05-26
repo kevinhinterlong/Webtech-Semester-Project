@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <!-- Kevin Hinterlong May 22, 2015 The index of the task assigner website -->
 <html>
-<?php $config = include("config.php"); ?>
+<?php 
+    session_start();
+    $config = include("config.php");
+?>
     <head>
 	<title>
 	    <?php echo $config["websiteName"];  ?>
