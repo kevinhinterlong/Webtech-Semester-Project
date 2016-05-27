@@ -9,24 +9,30 @@ function initialize() {
     var close = document.getElementsByClassName("close")[0];
 
     // When the user clicks on the button, open the modal 
-    btn.onclick = function() {
+    btn == null ? 0 : btn.onclick = function() {
         modal.style.display = "block";
     }
 
     // When the user clicks on <close> (x), close the modal
-    close.onclick = function() {
+    close == null ? 0 : close.onclick = function() {
         modal.style.display = "none";
     }
 
     var loginPassword = document.getElementById("loginPassword");
-    loginPassword.addEventListener("keydown", function (e) {
+    loginPassword == null ? 0 : loginPassword.addEventListener("keydown", function (e) {
         if (e.keyCode === 13) {
 	    login();
 	}
     });
     
+    var logoutButton = document.getElementById("logoutButton");
+    logoutButton == null ? 0 : logoutButton.onclick =function () {
+	logout(function() { window.location.replace("index.php"); } );
+    }
+
+    
     var confirmPassword = document.getElementById("confirmPassword");
-    confirmPassword.addEventListener("keydown", function (e) {
+    confirmPassword == null ? 0 : confirmPassword.addEventListener("keydown", function (e) {
         if (e.keyCode === 13) {
 	    register();
 	}
@@ -74,6 +80,10 @@ function register() {
 	    // window.location.replace("task.php");	
 	}); 
     });
+}
+
+function logout(successFunction) {
+    serverRequest("logout",undefined,undefined,successFunction);
 }
 
 //check with the server to see if a username is avialable

@@ -63,8 +63,9 @@ function login($conn,$username,$password) {
     $row = getUser($conn,$username)->fetch_array(MYSQLI_ASSOC);
     //if computed hash = stored hash then allow the user to login
     if( password_verify($password, $row["userHash"]) ) {
-	echo "success";
 	$_SESSION['username'] = $username;
+	echo "success";
+	$_SESSION['this'] = "yes";
 	//probably set other session variables
     } else {
 	echo "fail";
