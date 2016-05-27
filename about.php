@@ -42,7 +42,7 @@
 			<img src="https://pixabay.com/static/uploads/photo/2015/01/08/18/25/startup-593327_960_720.jpg" style="height:20%;" alt="computer">
 		    </div>
 		    <div class="feature-description">
-			<h2>Description</h2>
+			<h2>Such Productivity. Much Utility.</h2>
 		    </div>
 		</div>
 

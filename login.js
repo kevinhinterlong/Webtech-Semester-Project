@@ -75,11 +75,11 @@ function register() {
     var password = document.getElementById('registerPassword').value;
     var verifypassword = document.getElementById('confirmPassword').value;
     checkLogin(username,password,verifypassword, function() {
-	registerUser(username,password,function() {
-	    alert("account made and logged in");
-	    location.reload();
-	});
+    	registerUser(username,password,function() {});
+      loginUser(username,password,function() {location.reload();} );
     });
+
+
 }
 
 function logout(successFunction) {
