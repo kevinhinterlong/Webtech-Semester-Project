@@ -1,5 +1,5 @@
 #registerButton:hover {
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 #registerButton {
@@ -24,10 +24,56 @@
     box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
 }
 
-.pretty-button {
+#taskList {
+    position: absolute;
+    height: 80%;
+    /* width: 90%; */
+    margin: auto;
+    border: 1px solid black;
+    width: 40%;
+    top: 80px;
+    left: -58%;
+    right: 0%;
+    bottom: 0%;
+}
+
+.tasks {
+    list-style-type: none;
+    margin: .25em 0 0 .5em;
+}
+
+.task {
+    margin: .25em;
+    border: 1px black solid;
+}
+
+#taskMaker {
+    position: absolute;
+    height: 80%;
+    /* width: 90%; */
+    margin: auto;
+    width: 40%;
+    top: 80px;
+    left: 40%;
+    right: 0%;
+    bottom: 0%;
+}
+
+#loginButton button, #logoutButton button {
+      position:relative;
+      left: 50%;
+      display: inline-block;
+}
+
+.blue{
     background-color: blue;
-    position:relative;
-    left: 50%;
+}
+
+.blue:hover {
+   background-color: #6070ff;
+}
+
+.pretty-button {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     border-radius: 4px;
@@ -36,14 +82,12 @@
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
 }
 
 .pretty-button:hover {
-   background-color: #6070ff; 
    cursor: pointer;
-   box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2)
+   box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2);
 }
 
 #login input {
@@ -75,7 +119,7 @@
     margin: auto 3em auto 0em;
     height: 10%;
     -webkit-filter: drop-shadow(3px 5px 5px #225);
-    filter:         drop-shadow(3px 5px 5px #225); 
+    filter:         drop-shadow(3px 5px 5px #225);
     /* max-height: 100%; */
     /* max-width: 100%; */
     }
@@ -171,7 +215,7 @@
     left: 25%;
     bottom:0;
     right:0;
-    
+
     position:absolute;
     margin: -2% 0% 0 0;
 }
@@ -193,6 +237,7 @@
     background-color: red;
     width: auto;
     display: inline-block;
+
 }
 
 .disclaimer div {
@@ -204,7 +249,7 @@ p,li i {
     vertical-align: middle !important;
 }
 
-/* The Modal (background) from w3schools*/
+/* The content below is from w3schools*/
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -246,4 +291,65 @@ p,li i {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* http://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_pricing_table */
+.columns {
+    float: left;
+    width: 33.3%;
+    padding: 8px;
+}
+
+.price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
+}
+
+.price .title {
+    background-color: #7B7B7B;
+    color: white;
+    font-size: 25px;
+}
+
+.price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+.price .grey {
+    background-color: #eee;
+    font-size: 20px;
+}
+
+.select:hover {
+  background-color: #7B7B7B;
+}
+
+.select {
+    background-color: #4C4C4C;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 800px) {
+    .columns {
+        width: 100%;
+    }
 }

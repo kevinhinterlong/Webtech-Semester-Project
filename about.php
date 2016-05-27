@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!-- Kevin Hinterlong May 22, 2015 The index of the task assigner website -->
 <html>
-<?php 
-    session_start(); 
+<?php
+    if (session_status() === PHP_SESSION_NONE){session_start();}
     $config = include("config.php");
     include 'includes.php';
 ?>
@@ -26,7 +26,7 @@
 		    getDefaultBar();
 		}
 	    ?>
- 
+
 	</div>
 
 	<div class="main">
@@ -36,7 +36,7 @@
 		    <p><?php echo $config["websiteName"]; ?> is a growing company started at IMSA.</p>
 		    <p>Our goal is to create a user friendly way of assigning tasks and keeping track of tasks.</p>
 		</div>
-    
+
 		<div class="feature right">
 		    <div class="feature-image">
 			<img src="https://pixabay.com/static/uploads/photo/2015/01/08/18/25/startup-593327_960_720.jpg" style="height:20%;" alt="computer">
@@ -45,7 +45,7 @@
 			<h2>Description</h2>
 		    </div>
 		</div>
-    
+
 	    </div>
 
 
@@ -62,8 +62,8 @@
 	    </div>
 
 	</div>
-	
-	
+
+
 	<script>
 
 	    $( "#loginButton" ).click(function(event) {

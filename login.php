@@ -1,6 +1,6 @@
 <?php
     //start session
-    session_start();
+    if (session_status() === PHP_SESSION_NONE){session_start();}
 
     //extract and initialize variables
     $username = isset($_POST["username"]) ? $_POST["username"] : "" ;
@@ -23,12 +23,11 @@
 	echo "success";
 	//maybe log something
     } else if($_POST["method"] == "attemptRegister") { //if no results then see if the account is available
-	if($userDetails->num_rows == 0  ) {
-	    echo "success";
-	} else {
-	    // echo "fail";
-	    print_r($userDetails);
-	}
+    	if($userDetails->num_rows == 0  ) {
+    	    echo "success";
+    	} else {
+    	    echo "fail";
+    	}
     } else if($_POST["method"] == "register"){ //check if the account is being registered
 	if($userDetails->num_rows == 0 ) {
 	    register($conn,$username,$password);

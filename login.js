@@ -27,7 +27,7 @@ function initialize() {
 
     var logoutButton = document.getElementById("logoutButton");
     logoutButton == null ? 0 : logoutButton.onclick =function () {
-	logout(function() { window.location.replace("index.php"); } );
+	logout(function() { location.reload(); } );
     }
 
 
@@ -77,7 +77,7 @@ function register() {
     checkLogin(username,password,verifypassword, function() {
 	registerUser(username,password,function() {
 	    alert("account made and logged in");
-	    // window.location.replace("task.php");
+	    location.reload();
 	});
     });
 }
