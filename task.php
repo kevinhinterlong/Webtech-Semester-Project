@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <!-- Kevin Hinterlong DATE DESCRIPTION -->
 <html>
-<?php 
+<?php
     session_start();
     $config = include("config.php");
     include 'includes.php';
+    include 'tasker.php'
+
     if(isset($_SESSION['username']) && $_POST["action"] == "logout") {
-	session_destroy();
+	     session_destroy();
     }
     if(!isset($_SESSION['username'])){//only allow logged in users
-	header("Location:index.php");
+	     header("Location:index.php");
     }
-    echo "username" . $_SESSION['username'];
 ?>
     <head>
 	<title>
-	    <?php echo $config["websiteName"];  ?> - Tasks    
+	    <?php echo $config["websiteName"];  ?> - Tasks
 	</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -35,7 +36,15 @@
 	    ?>
 	</div>
 
-	
+  <div id="taskList">
+      <?php
+
+       ?>
+  </div>
+
+  <div id="taskMaker">
+
+  </div>
 
     </body>
 </html>

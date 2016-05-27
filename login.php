@@ -1,4 +1,4 @@
-<?php 
+<?php
     //start session
     session_start();
 
@@ -13,7 +13,7 @@
     }
 
     //get a connection to the database
-    $conn = getConnection(); 
+    $conn = getConnection();
     $username = $conn->real_escape_string($username); //escape username
     $userDetails = getUser($conn,$username); //retrieve details for user if they exist
     $row = $userDetails->fetch_array(MYSQLI_ASSOC);
@@ -41,7 +41,7 @@
     } else {
 	echo "No account found! Please register";
     }
-    
+
     //close connection
     $conn->close();
 
@@ -65,7 +65,6 @@ function login($conn,$username,$password) {
     if( password_verify($password, $row["userHash"]) ) {
 	$_SESSION['username'] = $username;
 	echo "success";
-	$_SESSION['this'] = "yes";
 	//probably set other session variables
     } else {
 	echo "fail";
@@ -98,13 +97,13 @@ function getConnection() {
     if($tableExists == false) {
 	initializeTable();
     }
-    return $conn;	
+    return $conn;
 }
 
 //create database if not exists
 function initializeDatabase() {
     $config = include("config.php");
-    $conn = new mysqli($config["servername"], $config["username"], $config["password"]); // Create connection	
+    $conn = new mysqli($config["servername"], $config["username"], $config["password"]); // Create connection
     $sql= "CREATE DATABASE IF NOT EXISTS {$config["database"]}";
     if ($conn->query($sql) === TRUE) {
 	echo "db created successfully";
@@ -119,7 +118,7 @@ function initializeTable() {
     $config = include("config.php");
     $conn = getRawConnection();
     $sql = "CREATE TABLE IF NOT EXISTS " . $config["userTable"] . " (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     userName VARCHAR(30) NOT NULL,
     userHash VARCHAR(100) NOT NULL
     )";

@@ -8,7 +8,7 @@ function initialize() {
     // Get the <close> element that closes the modal
     var close = document.getElementsByClassName("close")[0];
 
-    // When the user clicks on the button, open the modal 
+    // When the user clicks on the button, open the modal
     btn == null ? 0 : btn.onclick = function() {
         modal.style.display = "block";
     }
@@ -24,13 +24,13 @@ function initialize() {
 	    login();
 	}
     });
-    
+
     var logoutButton = document.getElementById("logoutButton");
     logoutButton == null ? 0 : logoutButton.onclick =function () {
 	logout(function() { window.location.replace("index.php"); } );
     }
 
-    
+
     var confirmPassword = document.getElementById("confirmPassword");
     confirmPassword == null ? 0 : confirmPassword.addEventListener("keydown", function (e) {
         if (e.keyCode === 13) {
@@ -66,7 +66,7 @@ function login() {
     var username = form[0].value;
     var password = form[1].value;
     loginUser(username,password,function() {
-	window.location.replace("task.php");
+	     location.reload();
     });
 }
 
@@ -74,11 +74,11 @@ function register() {
     var username = document.getElementById('registerUsername').value;
     var password = document.getElementById('registerPassword').value;
     var verifypassword = document.getElementById('confirmPassword').value;
-    checkLogin(username,password,verifypassword, function() { 
+    checkLogin(username,password,verifypassword, function() {
 	registerUser(username,password,function() {
 	    alert("account made and logged in");
-	    // window.location.replace("task.php");	
-	}); 
+	    // window.location.replace("task.php");
+	});
     });
 }
 
@@ -101,7 +101,7 @@ function registerUser(username,password,successFunction) {
     serverRequest("register",username,password,successFunction);
 }
 
-//used to see if a name is available and 
+//used to see if a name is available and
 function serverRequest(mode,username,password,successFunction) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -123,5 +123,3 @@ function serverRequest(mode,username,password,successFunction) {
 function hasWhiteSpace(s) {
     return /\s/g.test(s);
 }
-
-
